@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.form {
+    margin: 0 auto;
+    width: 371px;
+    height: 40px;
+    margin-top: 36px;
+}
+
+input {
+    width: 272px;
+    height: 100%;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    border: 1px solid #808080;
+}
+
+button {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 91px;
+    height: 40px;
+    border: none;
+    background: #4e75ff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    transition: background 250ms ease-in-out;
+}
+
+button:hover,
+button:focus {
+    background: #6c8cff;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1128px;
+    gap: 24px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+.list-item {
+    width: 360px;
+    /* height: 200px; */
+    border: 1px solid #808080;
+    /* margin-bottom: 44px; */
+    
+}
+
+.image-container {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.container-item {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-follow {
+    /* width: 34px;
+    height: 40px; */
+    display: flex;
+    flex-direction: column;
+}
+
