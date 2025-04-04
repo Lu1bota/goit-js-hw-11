@@ -1,18 +1,16 @@
-// У файлі render-functions.js створи екземпляр SimpleLightbox для роботи з модальним вікном та зберігай функції для відображення елементів інтерфейсу:
-
-// createGallery(images). Ця функція повинна приймати масив images, створювати HTML-розмітку для галереї, додавати її в контейнер галереї та викликати метод екземпляра SimpleLightbox refresh(). Нічого не повертає.
-// clearGallery(). Ця функція нічого не приймає та повинна очищати вміст контейнера галереї. Нічого не повертає.
-// showLoader(). Ця функція нічого не приймає, повинна додавати клас для відображення лоадера. Нічого не повертає.
-// hideLoader(). Ця функція нічого не приймає, повинна прибирати клас для відображення лоадера. Нічого не повертає.
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+const loader = document.querySelector('#loader');
+const fragment = document.createDocumentFragment();
+const list = document.querySelector('.gallery');
+
 export function createGallery(images) {
-  return images
-    .map(item => {
-      return `
-    <li class="list-item">
-    <div class="image-container">
+  images.forEach(item => {
+    const li = document.createElement('li');
+    li.classList.add('list-item');
+    li.innerHTML = `
+  <div class="image-container">
     <a class="item-link" href="${item.largeImageURL}">
     <img
       class="gallery-image"
@@ -38,11 +36,11 @@ export function createGallery(images) {
   <strong>Downloads</strong>
   <span>${item.downloads}</span>
   </div>
-  </div>
-  </li>
-    `;
-    })
-    .join('');
+  </div>`;
+    fragment.append(li);
+  });
+
+  list.append(fragment);
 }
 
 export let lightbox = new SimpleLightbox('.item-link', {
@@ -51,6 +49,14 @@ export let lightbox = new SimpleLightbox('.item-link', {
 });
 
 export function clearGallery() {
-  const list = document.querySelector('.gallery');
+  // const list = document.querySelector('.gallery');
   list.innerHTML = '';
+}
+
+export function showLoader() {
+  loader.classList.add('loader');
+}
+
+export function hideLoader() {
+  loader.classList.remove('loader');
 }
