@@ -63,8 +63,13 @@ button:focus {
 
 .image-container {
     display: block;
-    height: 100%;
-    width: auto;
+    /* height: 160px; */
+    /* width: auto; */
+}
+
+img {
+    height: 160px;
+    width: 100%;
 }
 
 .container-item {
@@ -74,10 +79,17 @@ button:focus {
     align-items: center;
 }
 
+.item-link {
+    /* height: 160px;
+    width: 100%; */
+}
+
 .container-follow {
-    /* width: 34px;
-    height: 40px; */
+    /* width: 34px;*/
+    /* height: 40px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 

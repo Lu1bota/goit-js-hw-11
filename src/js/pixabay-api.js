@@ -5,7 +5,7 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { createGallery } from './render-functions';
-import { list } from '../main';
+// import { list } from '../main';
 
 const API_KEY = '49643579-021fb679616bd716ef3622271';
 
@@ -30,8 +30,6 @@ export function getImagesByQuery(query) {
         });
         return;
       }
-
-      list.insertAdjacentHTML('beforeend', createGallery(response.data.hits));
 
       return response.data;
     })

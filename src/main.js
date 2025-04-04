@@ -4,11 +4,10 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 import { getImagesByQuery } from './js/pixabay-api';
-import { clearGallery } from './js/render-functions';
+import { clearGallery, createGallery, lightbox } from './js/render-functions';
 
 const form = document.querySelector('.form');
 const input = form.querySelector('input');
-export const list = document.querySelector('.gallery');
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
@@ -17,5 +16,9 @@ function handleSubmit(event) {
 
   if (input.value.trim().length === 0) return;
 
-  getImagesByQuery(input.value);
+  getImagesByQuery(input.value).then(response => {
+    const list = document.querySelector('.gallery');
+    list.insertAdjacentHTML('beforeend', createGallery(response.hits));
+    lightbox.refresh();
+  });
 }
