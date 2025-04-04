@@ -1,9 +1,11 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const loader = document.querySelector('#loader');
+const loader = document.querySelector('.loader');
 const fragment = document.createDocumentFragment();
 const list = document.querySelector('.gallery');
+
+loader.classList.remove('loader');
 
 export function createGallery(images) {
   images.forEach(item => {
